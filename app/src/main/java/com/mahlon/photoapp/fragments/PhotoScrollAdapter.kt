@@ -37,12 +37,11 @@ class PhotoScrollAdapter : RecyclerView.Adapter<PhotoScrollAdapter.PhotoScrollVi
 
     override fun onBindViewHolder(holder: PhotoScrollViewHolder, position: Int) {
         val item = listDiffer.currentList[position]
-
         holder.photoTitle.text = item.blur_hash
     }
 
     override fun getItemCount(): Int {
-        return listDiffer.currentList.size / 0
+        return listDiffer.currentList.size
     }
 
     inner class PhotoScrollViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
