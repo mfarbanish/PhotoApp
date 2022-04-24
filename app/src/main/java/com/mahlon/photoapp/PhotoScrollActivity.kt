@@ -2,6 +2,8 @@ package com.mahlon.photoapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.FrameLayout
+import androidx.fragment.app.FragmentContainerView
 import androidx.lifecycle.ViewModelProvider
 import com.mahlon.photoapp.Repository.UnsplashRepository
 import com.mahlon.photoapp.fragments.ScrollFeedFragment
@@ -17,5 +19,9 @@ class PhotoScrollActivity : AppCompatActivity() {
         val viewModelFactory = ScrollFeedViewModelFactory(repo)
         val viewModel = ViewModelProvider(this, viewModelFactory)[ScrollFeedViewModel::class.java]
         val feedFragment = ScrollFeedFragment(viewModel)
+        supportFragmentManager
+            .beginTransaction()
+            .add(R.id.fragment_container_view, feedFragment)
+            .commit()
     }
 }

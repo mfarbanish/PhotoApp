@@ -11,6 +11,8 @@ interface UnsplashAPI {
     suspend fun getUnsplashPhoto(
         @Query("page")
         pageNumber: Int,
+        @Query("per_page")
+        pageSize: Int = Constants.PAGE_SIZE,
         @Query("client_id")
         clientId: String = Constants.API_KEY
     ): Response<UnsplashResponse>
